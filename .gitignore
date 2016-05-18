@@ -41,3 +41,4 @@ httpd.parse.errors
 # Exclude ALL DLLs? (
 # *.dll
 /src/Gemini.sln.GhostDoc.xml
+/src/.vs/config/applicationhost.config
