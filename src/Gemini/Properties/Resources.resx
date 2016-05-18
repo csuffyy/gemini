@@ -132,6 +132,12 @@
   <data name="EditUndoCommandToolTip" xml:space="preserve">
     <value>Undo</value>
   </data>
+  <data name="ErrorTextPlural" xml:space="preserve">
+    <value>{0} Errors</value>
+  </data>
+  <data name="ErrorTextSingular" xml:space="preserve">
+    <value>{0} Error</value>
+  </data>
   <data name="FileCloseCommandText" xml:space="preserve">
     <value>_Close</value>
   </data>
@@ -171,6 +177,12 @@
   <data name="HelpMenuText" xml:space="preserve">
     <value>_Help</value>
   </data>
+  <data name="MessageTextPlural" xml:space="preserve">
+    <value>{0} Messages</value>
+  </data>
+  <data name="MessageTextSingular" xml:space="preserve">
+    <value>{0} Message</value>
+  </data>
   <data name="SettingsPageGeneral" xml:space="preserve">
     <value>General</value>
   </data>
@@ -183,20 +195,50 @@
   <data name="ToolsOptionsCommandToolTip" xml:space="preserve">
     <value>Options</value>
   </data>
+  <data name="ViewErrorListCommandText" xml:space="preserve">
+    <value>Error L_ist</value>
+  </data>
+  <data name="ViewErrorListCommandToolTip" xml:space="preserve">
+    <value>Error List</value>
+  </data>
   <data name="ViewHistoryCommandText" xml:space="preserve">
     <value>_History</value>
   </data>
   <data name="ViewHistoryCommandToolTip" xml:space="preserve">
     <value>History</value>
   </data>
+  <data name="ViewInspectorCommandText" xml:space="preserve">
+    <value>I_nspector</value>
+  </data>
+  <data name="ViewInspectorCommandToolTip" xml:space="preserve">
+    <value>Inspector</value>
+  </data>
   <data name="ViewMenuText" xml:space="preserve">
     <value>_View</value>
+  </data>
+  <data name="ViewOutputCommandText" xml:space="preserve">
+    <value>_Output</value>
+  </data>
+  <data name="ViewOutputCommandToolTip" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="ViewPropertyGridCommandText" xml:space="preserve">
+    <value>Properties _Window</value>
+  </data>
+  <data name="ViewPropertyGridCommandToolTip" xml:space="preserve">
+    <value>Properties Window</value>
   </data>
   <data name="ViewToolboxCommandText" xml:space="preserve">
     <value>Toolbo_x</value>
   </data>
   <data name="ViewToolboxCommandToolTip" xml:space="preserve">
     <value>Toolbox</value>
+  </data>
+  <data name="WarningTextPlural" xml:space="preserve">
+    <value>{0} Warnings</value>
+  </data>
+  <data name="WarningTextSingular" xml:space="preserve">
+    <value>{0} Warning</value>
   </data>
   <data name="WindowMenuText" xml:space="preserve">
     <value>_Window</value>

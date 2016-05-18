@@ -47,15 +47,37 @@
       <HintPath>..\packages\Caliburn.Micro.3.0.1\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.1.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <HintPath>..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.2.2\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.1.2.2\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.1.37.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.1.37\lib\dotnet\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reflection.Metadata, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.2.0\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -161,6 +183,116 @@
     <Compile Include="Framework\Win32\NativeMethods.cs" />
     <Compile Include="Framework\WindowBase.cs" />
     <Compile Include="Framework\Controls\DynamicStyle.cs" />
+    <Compile Include="Modules\CodeCompiler\CodeCompiler.cs" />
+    <Compile Include="Modules\CodeCompiler\ICodeCompiler.cs" />
+    <Compile Include="Modules\CodeEditor\Controls\CodeEditor.cs" />
+    <Compile Include="Modules\CodeEditor\DefaultLanguageDefinition.cs" />
+    <Compile Include="Modules\CodeEditor\EditorProvider.cs" />
+    <Compile Include="Modules\CodeEditor\ILanguageDefinition.cs" />
+    <Compile Include="Modules\CodeEditor\LanguageDefinitionManager.cs" />
+    <Compile Include="Modules\CodeEditor\ViewModels\CodeEditorViewModel.cs" />
+    <Compile Include="Modules\CodeEditor\Views\CodeEditorView.xaml.cs">
+      <DependentUpon>CodeEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\CodeEditor\Views\ICodeEditorView.cs" />
+    <Compile Include="Modules\ErrorList\Commands\ToggleErrorsCommandDefinition.cs" />
+    <Compile Include="Modules\ErrorList\Commands\ToggleErrorsWarningsMessagesCommandHandler.cs" />
+    <Compile Include="Modules\ErrorList\Commands\ToggleMessagesCommandDefinition.cs" />
+    <Compile Include="Modules\ErrorList\Commands\ToggleWarningsCommandDefinition.cs" />
+    <Compile Include="Modules\ErrorList\Commands\ViewErrorListCommandDefinition.cs" />
+    <Compile Include="Modules\ErrorList\Commands\ViewErrorListCommandHandler.cs" />
+    <Compile Include="Modules\ErrorList\Converters\ErrorListItemTypeToImageConverter.cs" />
+    <Compile Include="Modules\ErrorList\Design\DesignTimeErrorListViewModel.cs" />
+    <Compile Include="Modules\ErrorList\ErrorListItem.cs" />
+    <Compile Include="Modules\ErrorList\ErrorListItemType.cs" />
+    <Compile Include="Modules\ErrorList\IErrorList.cs" />
+    <Compile Include="Modules\ErrorList\MenuDefinitions.cs" />
+    <Compile Include="Modules\ErrorList\ToolBarDefinitions.cs" />
+    <Compile Include="Modules\ErrorList\ViewModels\ErrorListViewModel.cs" />
+    <Compile Include="Modules\ErrorList\Views\ErrorListView.xaml.cs">
+      <DependentUpon>ErrorListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\GraphEditor\Controls\AnimationHelper.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\BezierLine.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ConnectionDragCompletedEventArgs.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ConnectionDragEventArgs.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ConnectionDraggingEventArgs.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ConnectionDragStartedEventArgs.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ConnectorItem.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ConnectorItemDragCompletedEventArgs.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ConnectorItemDraggingEventArgs.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ConnectorItemDragStartedEventArgs.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ElementItem.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ElementItemsControl.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\GraphControl.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ZoomAndPanControl.cs" />
+    <Compile Include="Modules\GraphEditor\Controls\ZoomAndPanControl_IScrollInfo.cs" />
+    <Compile Include="Modules\GraphEditor\Converters\ColorToBrushConverter.cs" />
+    <Compile Include="Modules\GraphEditor\Module.cs" />
+    <Compile Include="Modules\Inspector\BoundPropertyDescriptor.cs" />
+    <Compile Include="Modules\Inspector\Commands\ViewInspectorCommandDefinition.cs" />
+    <Compile Include="Modules\Inspector\Commands\ViewInspectorCommandHandler.cs" />
+    <Compile Include="Modules\Inspector\Controls\InspectorGrid.cs" />
+    <Compile Include="Modules\Inspector\Controls\InspectorItemTemplateSelector.cs" />
+    <Compile Include="Modules\Inspector\Controls\NumericTextBox.cs" />
+    <Compile Include="Modules\Inspector\Controls\ScreenColorPicker.cs" />
+    <Compile Include="Modules\Inspector\Controls\SimpleGridSplitter.cs" />
+    <Compile Include="Modules\Inspector\Conventions\DefaultPropertyInspectors.cs" />
+    <Compile Include="Modules\Inspector\Conventions\EnumPropertyEditorBuilder.cs" />
+    <Compile Include="Modules\Inspector\Conventions\PropertyEditorBuilder.cs" />
+    <Compile Include="Modules\Inspector\Conventions\RangePropertyEditorBuilder.cs" />
+    <Compile Include="Modules\Inspector\Conventions\StandardPropertyEditorBuilder.cs" />
+    <Compile Include="Modules\Inspector\IInspectableObject.cs" />
+    <Compile Include="Modules\Inspector\IInspectorTool.cs" />
+    <Compile Include="Modules\Inspector\InspectableObject.cs" />
+    <Compile Include="Modules\Inspector\InspectableObjectBuilder.cs" />
+    <Compile Include="Modules\Inspector\InspectorBuilder.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\BitmapSourceEditorView.xaml.cs">
+      <DependentUpon>BitmapSourceEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Inspectors\BitmapSourceEditorViewModel.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\ChangeObjectValueAction.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\CheckBoxEditorView.xaml.cs">
+      <DependentUpon>CheckBoxEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Inspectors\CheckBoxEditorViewModel.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\CollapsibleGroupBuilder.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\CollapsibleGroupView.xaml.cs">
+      <DependentUpon>CollapsibleGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Inspectors\CollapsibleGroupViewModel.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\ColorEditorView.xaml.cs">
+      <DependentUpon>ColorEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Inspectors\ColorEditorViewModel.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\EditorBase.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\EnumEditorView.xaml.cs">
+      <DependentUpon>EnumEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Inspectors\EnumEditorViewModel.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\IEditor.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\IInspector.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\ILabelledInspector.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\InspectorBase.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\Point3DEditorView.xaml.cs">
+      <DependentUpon>Point3DEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Inspectors\Point3DEditorViewModel.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\RangeEditorView.xaml.cs">
+      <DependentUpon>RangeEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Inspectors\RangeEditorViewModel.cs" />
+    <Compile Include="Modules\Inspector\Inspectors\TextBoxEditorView.xaml.cs">
+      <DependentUpon>TextBoxEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Inspectors\TextBoxEditorViewModel.cs" />
+    <Compile Include="Modules\Inspector\MenuDefinitions.cs" />
+    <Compile Include="Modules\Inspector\Util\ExpressionUtility.cs" />
+    <Compile Include="Modules\Inspector\ViewModels\InspectorViewModel.cs" />
+    <Compile Include="Modules\Inspector\Views\InspectorView.xaml.cs">
+      <DependentUpon>InspectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inspector\Win32\NativeMethods.cs" />
     <Compile Include="Modules\MainMenu\Behaviors\MenuBehavior.cs" />
     <Compile Include="Modules\MainMenu\IMenuBuilder.cs" />
     <Compile Include="Modules\MainMenu\MenuBuilder.cs" />
@@ -170,6 +302,24 @@
     <Compile Include="Modules\MainMenu\ViewModels\MainMenuSettingsViewModel.cs" />
     <Compile Include="Modules\MainMenu\Views\MainMenuSettingsView.xaml.cs">
       <DependentUpon>MainMenuSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Output\Commands\ViewOutputCommandDefinition.cs" />
+    <Compile Include="Modules\Output\Commands\ViewOutputCommandHandler.cs" />
+    <Compile Include="Modules\Output\IOutput.cs" />
+    <Compile Include="Modules\Output\MenuDefinitions.cs" />
+    <Compile Include="Modules\Output\ViewModels\OutputViewModel.cs" />
+    <Compile Include="Modules\Output\ViewModels\OutputWriter.cs" />
+    <Compile Include="Modules\Output\Views\IOutputView.cs" />
+    <Compile Include="Modules\Output\Views\OutputView.xaml.cs">
+      <DependentUpon>OutputView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\PropertyGrid\Commands\ViewPropertyGridCommandDefinition.cs" />
+    <Compile Include="Modules\PropertyGrid\Commands\ViewPropertyGridCommandHandler.cs" />
+    <Compile Include="Modules\PropertyGrid\IPropertyGrid.cs" />
+    <Compile Include="Modules\PropertyGrid\MenuDefinitions.cs" />
+    <Compile Include="Modules\PropertyGrid\ViewModels\PropertyGridViewModel.cs" />
+    <Compile Include="Modules\PropertyGrid\Views\PropertyGridView.xaml.cs">
+      <DependentUpon>PropertyGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Settings\Commands\OpenSettingsCommandDefinition.cs" />
     <Compile Include="Modules\Settings\Commands\OpenSettingsCommandHandler.cs" />
@@ -321,6 +471,54 @@
     <Compile Include="Framework\Themes\LightTheme.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Modules\CodeEditor\Views\CodeEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\ErrorList\Views\ErrorListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Inspectors\BitmapSourceEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Inspectors\CheckBoxEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Inspectors\CollapsibleGroupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Inspectors\ColorEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Inspectors\EnumEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Inspectors\Point3DEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Inspectors\RangeEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Inspectors\TextBoxEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Resources\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Inspector\Views\InspectorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Modules\MainMenu\Resources\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -337,6 +535,14 @@
       <SubType>
       </SubType>
     </DesignData>
+    <Page Include="Modules\Output\Views\OutputView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\PropertyGrid\Views\PropertyGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Modules\Settings\Views\SettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -433,6 +639,25 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\ErrorList\Resources\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\ErrorList\Resources\Message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\ErrorList\Resources\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\PropertyGrid\Resources\Icons\Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Modules\Inspector\Resources\eyedropper_16xLG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
