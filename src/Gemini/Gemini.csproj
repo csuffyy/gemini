@@ -944,21 +944,15 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Modules\ErrorList\Resources\Error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Modules\ErrorList\Resources\Message.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Modules\ErrorList\Resources\Warning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Modules\PropertyGrid\Resources\Icons\Properties.png" />
+    <Resource Include="Resources\Icons\Properties.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Modules\Inspector\Resources\eyedropper_16xLG.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\ErrorList\Warning.png" />
+    <Resource Include="Resources\ErrorList\Message.png" />
+    <Resource Include="Resources\ErrorList\Error.png" />
     <Resource Include="Resources\Images\Class.png" />
     <Resource Include="Resources\Images\Constructor.png" />
     <Resource Include="Resources\Images\Delegate.png" />

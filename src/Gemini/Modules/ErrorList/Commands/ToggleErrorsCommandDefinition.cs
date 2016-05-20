@@ -25,7 +25,7 @@ namespace Gemini.Modules.ErrorList.Commands
 
         public override Uri IconSource
         {
-            get { return new Uri("pack://application:,,,/Gemini.Modules.ErrorList;component/Resources/Error.png"); }
+            get { return new Uri("pack://application:,,,/Gemini;component/Resources/ErrorList/Error.png"); }
         }
     }
 }

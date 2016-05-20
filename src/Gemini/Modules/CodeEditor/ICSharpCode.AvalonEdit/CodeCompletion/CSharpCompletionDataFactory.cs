@@ -150,7 +150,7 @@ namespace ICSharpCode.AvalonEdit.CodeCompletion
             throw new NotImplementedException();
         }
 
-        NRefactory.Completion.ICompletionData ICompletionDataFactory.CreateXmlDocCompletionData(string tag, string description = null, string tagInsertionText = null)
+        NRefactory.Completion.ICompletionData ICompletionDataFactory.CreateXmlDocCompletionData(string tag, string description, string tagInsertionText)
         {
             throw new NotImplementedException();
         }

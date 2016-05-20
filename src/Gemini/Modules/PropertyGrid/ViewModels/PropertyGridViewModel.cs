@@ -19,7 +19,7 @@ namespace Gemini.Modules.PropertyGrid.ViewModels
 
 		public override Uri IconSource
 		{
-			get { return new Uri("pack://application:,,,/Gemini;component/Modules.PropertyGrid/Resources/Icons/Properties.png"); }
+			get { return new Uri("pack://application:,,,/Gemini;component/Resources/Icons/Properties.png"); }
 		}
 
 		private object _selectedObject;

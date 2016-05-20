@@ -17,7 +17,7 @@ namespace ICSharpCode.AvalonEdit.CodeCompletion.DataItems
 
             IAmbience ambience = new CSharpAmbience();
             DisplayText = variable.Name;
-            Description = ambience.ConvertVariable(variable);
+            Description = ambience.ConvertSymbol(variable);
             CompletionText = Variable.Name;
             this.Image = ICSharpCode.AvalonEdit.CodeCompletion.CompletionImage.Field.BaseImage;
         }

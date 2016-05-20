@@ -84,7 +84,7 @@ namespace ICSharpCode.AvalonEdit.CodeCompletion.DataItems
                 if(reducedFromMethod != null)
                     entity = reducedFromMethod;
             }
-            return ambience.ConvertEntity(entity);
+            return ambience.ConvertSymbol(entity);
         }
 
         public static string XmlDocumentationToText(string xmlDoc)

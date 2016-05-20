@@ -112,7 +112,8 @@ namespace ICSharpCode.AvalonEdit.CodeCompletion
             var documentation = XmlDocumentationElement.Get(Method);
             ambience.ConversionFlags = ConversionFlags.ShowTypeParameterList;
 			
-            var inlineBuilder = new HighlightedInlineBuilder(stringBuilder.ToString());
+            //var inlineBuilder = new HighlightedInlineBuilder(stringBuilder.ToString());
+            var inlineBuilder = new RichText(stringBuilder.ToString());
             header.Inlines.Clear();
             header.Inlines.AddRange(inlineBuilder.CreateRuns());
         }
