@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DOTNET4;NREFACTORY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -47,8 +47,20 @@
       <HintPath>..\packages\Caliburn.Micro.3.0.1\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.1.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
-      <HintPath>..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    <Reference Include="ICSharpCode.NRefactory, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.Cecil, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.Cecil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.CSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.CSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.Xml, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.Xml.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
@@ -61,6 +73,22 @@
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.1.2.2\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -78,6 +106,7 @@
       <HintPath>..\packages\System.Reflection.Metadata.1.2.0\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -85,6 +114,8 @@
     <Reference Include="System.Xaml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="Xceed.Wpf.AvalonDock, Version=2.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.2.8\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
@@ -185,10 +216,235 @@
     <Compile Include="Framework\Controls\DynamicStyle.cs" />
     <Compile Include="Modules\CodeCompiler\CodeCompiler.cs" />
     <Compile Include="Modules\CodeCompiler\ICodeCompiler.cs" />
-    <Compile Include="Modules\CodeEditor\Controls\CodeEditor.cs" />
     <Compile Include="Modules\CodeEditor\DefaultLanguageDefinition.cs" />
     <Compile Include="Modules\CodeEditor\EditorProvider.cs" />
     <Compile Include="Modules\CodeEditor\ILanguageDefinition.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\AvalonEditCommands.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CodeCompletionResult.cs" />
+    <Compile Include="Modules\CodeEditor\Controls\CodeEditor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CompletionImage.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CompletionList.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CompletionListBox.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CompletionWindow.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CompletionWindowBase.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CSharpCompletion.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CSharpCompletionContext.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CSharpCompletionDataFactory.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CSharpInsightItem.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CSharpOverloadProvider.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\DataItems\CompletionData.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\DataItems\CompletionImage.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\DataItems\EntityCompletionData.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\DataItems\ImportCompletionData.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\DataItems\OverrideCompletionData.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\DataItems\VariableCompletionData.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\ICompletionData.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\ICSharpScriptProvider.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\InsightWindow.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\IOverloadProvider.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\OverloadInsightWindow.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\OverloadViewer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\SegmentTrackingOutputFormatter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\DocumentChangeEventArgs.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\DocumentChangeOperation.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\DocumentLine.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\DocumentLineTree.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\DocumentTextWriter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\GapTextBuffer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\IDocument.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\ILineTracker.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\ITextAnchor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\ITextSource.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\IUndoableOperation.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\LineManager.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\LineNode.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\NewLineFinder.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\OffsetChangeMap.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\RopeTextSource.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\SimpleSegment.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextAnchor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextAnchorNode.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextAnchorTree.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextDocument.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextDocumentWeakEventManager.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextLocation.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextSegment.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextSegmentCollection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextSourceVersionProvider.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\TextUtilities.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\UndoOperationGroup.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\UndoStack.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Document\WeakLineTracker.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\AbstractMargin.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\Caret.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\CaretLayer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\CaretNavigationCommandHandler.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\CaretWeakEventHandler.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\DottedLineMargin.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\DragDropException.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\EditingCommandHandler.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\EmptySelection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\ImeNativeWrapper.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\ImeSupport.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\IReadOnlySectionProvider.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\LineNumberMargin.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\NoReadOnlySections.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\RectangleSelection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\Selection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\SelectionColorizer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\SelectionLayer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\SelectionMouseHandler.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\SelectionSegment.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\SimpleSelection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\TextArea.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\TextAreaDefaultInputHandlers.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\TextAreaInputHandler.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Editing\TextSegmentReadOnlySectionProvider.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Folding\FoldingElementGenerator.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Folding\FoldingManager.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Folding\FoldingMargin.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Folding\FoldingMarginMarker.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Folding\FoldingSection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Folding\NewFolding.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Folding\XmlFoldingStrategy.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\DocumentHighlighter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightedInlineBuilder.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightedLine.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightedSection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingBrush.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingColor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingColorizer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingDefinitionInvalidException.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingDefinitionTypeConverter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingEngine.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingManager.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingRule.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingRuleSet.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HighlightingSpan.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HtmlClipboard.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HtmlOptions.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\HtmlRichTextWriter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\IHighlighter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\IHighlightingDefinition.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\IHighlightingDefinitionReferenceResolver.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\RichText.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\RichTextColorizer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\RichTextModel.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\RichTextModelWriter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\HighlightingLoader.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\IXshdVisitor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\SaveXshdVisitor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\V1Loader.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\V2Loader.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XmlHighlightingDefinition.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdColor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdImport.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdKeywords.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdProperty.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdReference.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdRule.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdRuleSet.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdSpan.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Xshd\XshdSyntaxDefinition.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Indentation\CSharp\CSharpIndentationStrategy.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Indentation\CSharp\DocumentAccessor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Indentation\CSharp\IndentationReformatter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Indentation\DefaultIndentationStrategy.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Indentation\IIndentationStrategy.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\BackgroundGeometryBuilder.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\CollapsedLineSection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\ColorizingTransformer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\ColumnRulerRenderer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\CurrentLineHighlightRenderer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\DefaultTextRunTypographyProperties.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\DocumentColorizingTransformer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\FormattedTextElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\GlobalTextRunProperties.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\HeightTree.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\HeightTreeLineNode.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\HeightTreeNode.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\IBackgroundRenderer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\InlineObjectRun.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\ITextRunConstructionContext.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\ITextViewConnect.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\IVisualLineTransformer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\Layer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\LayerPosition.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\LinkElementGenerator.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\MouseHoverLogic.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\SimpleTextSource.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\SingleCharacterElementGenerator.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\TextLayer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\TextView.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\TextViewCachedElements.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\TextViewWeakEventManager.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLine.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLineConstructionStartEventArgs.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLineElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLineElementGenerator.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLineElementTextRunProperties.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLineLinkText.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLinesInvalidException.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLineText.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLineTextParagraphProperties.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualLineTextSource.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Rendering\VisualYPosition.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\DropDownButton.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\ISearchStrategy.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\Localization.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\RegexSearchStrategy.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\SearchCommands.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\SearchPanel.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\SearchResultBackgroundRenderer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\SearchStrategyFactory.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\IActiveElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\InsertionContext.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\Snippet.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetAnchorElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetBoundElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetCaretElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetContainerElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetEventArgs.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetInputHandler.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetReplaceableTextElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetSelectionElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Snippets\SnippetTextElement.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\TextEditor.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\TextEditorAutomationPeer.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\TextEditorComponent.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\TextEditorOptions.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\TextEditorWeakEventManager.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\TextViewPosition.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\Boxes.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\CallbackOnDispose.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\CharRope.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\CompressingTreeList.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\Constants.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\DelayedEvents.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\Deque.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\DocumentPrinter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\Empty.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\ExtensionMethods.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\FileReader.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\IFreezable.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\ImmutableStack.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\NullSafeCollection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\ObserveAddRemoveCollection.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\PixelSnapHelpers.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\PlainRichTextWriter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\PropertyChangedWeakEventManager.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\RichTextWriter.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\Rope.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\RopeNode.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\RopeTextReader.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\StringSegment.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\TextFormatterFactory.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\ThrowUtil.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\WeakEventManagerBase.cs" />
+    <Compile Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Utils\Win32.cs" />
     <Compile Include="Modules\CodeEditor\LanguageDefinitionManager.cs" />
     <Compile Include="Modules\CodeEditor\ViewModels\CodeEditorViewModel.cs" />
     <Compile Include="Modules\CodeEditor\Views\CodeEditorView.xaml.cs">
@@ -471,6 +727,26 @@
     <Compile Include="Framework\Themes\LightTheme.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\CompletionList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\CodeCompletion\InsightWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\DropDownButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\SearchPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\TextEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Modules\CodeEditor\Views\CodeEditorView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -616,6 +892,29 @@
     <None Include="app.config" />
     <Resource Include="Framework\ShaderEffects\GrayscaleEffect.ps" />
     <None Include="Gemini.nuspec" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\ASPX.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\Boo.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\Coco-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\CPP-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\CSharp-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\CSS-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\HTML-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\Java-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\JavaScript-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\MarkDown-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\ModeV1.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\ModeV2.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\Patch-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\PHP-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\PowerShell.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\Tex-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\VB-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\XML-Mode.xshd" />
+    <EmbeddedResource Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Highlighting\Resources\XmlDoc.xshd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -658,6 +957,36 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Modules\Inspector\Resources\eyedropper_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Class.png" />
+    <Resource Include="Resources\Images\Constructor.png" />
+    <Resource Include="Resources\Images\Delegate.png" />
+    <Resource Include="Resources\Images\Enum.png" />
+    <Resource Include="Resources\Images\EnumValue.png" />
+    <Resource Include="Resources\Images\Event.png" />
+    <Resource Include="Resources\Images\ExtensionMethod.png" />
+    <Resource Include="Resources\Images\Field.png" />
+    <Resource Include="Resources\Images\FieldReadOnly.png" />
+    <Resource Include="Resources\Images\Indexer.png" />
+    <Resource Include="Resources\Images\Interface.png" />
+    <Resource Include="Resources\Images\Literal.png" />
+    <Resource Include="Resources\Images\Method.png" />
+    <Resource Include="Resources\Images\NameSpace.png" />
+    <Resource Include="Resources\Images\Operator.png" />
+    <Resource Include="Resources\Images\OverlayInternal.png" />
+    <Resource Include="Resources\Images\OverlayPrivate.png" />
+    <Resource Include="Resources\Images\OverlayProtected.png" />
+    <Resource Include="Resources\Images\OverlayProtectedInternal.png" />
+    <Resource Include="Resources\Images\OverlayStatic.png" />
+    <Resource Include="Resources\Images\PInvokeMethod.png" />
+    <Resource Include="Resources\Images\Property.png" />
+    <Resource Include="Resources\Images\StaticClass.png" />
+    <Resource Include="Resources\Images\Struct.png" />
+    <Resource Include="Resources\Images\VirtualMethod.png" />
+    <Content Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\next.png" />
+    <Content Include="Modules\CodeEditor\ICSharpCode.AvalonEdit\Search\prev.png" />
+    <Resource Include="Resources\RightArrow.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

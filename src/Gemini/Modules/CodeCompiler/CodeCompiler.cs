@@ -11,6 +11,7 @@ using Gemini.Modules.Output;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System.IO;
+using System.Linq;
 using Microsoft.CodeAnalysis.Emit;
 
 namespace Gemini.Modules.CodeCompiler
@@ -44,12 +45,24 @@ namespace Gemini.Modules.CodeCompiler
             {
                 var result = compilation.Emit(ms);
                 _errorList.Items.Clear();
+
                 if (!result.Success)
                 {
                     ProcessResult(result);
-                    _output.AppendLine("------ Compile failed");
+                    var errorItems = _errorList.Items;
+
+                    //输出错误信息
+                    _output.AppendLine("------ Compile failed!");
+                    _output.AppendLine(string.Format("------共 {0} 条错误:", errorItems.Count));
+                    for (int i = 0; i < errorItems.Count; i++)
+                    {
+                        var item = errorItems[i];
+                        _output.AppendLine(string.Format("\t{0}: 第{1}行    错误：{2}", i + 1, item.Line, item.Description));
+                    }
+
                     return null;
                 }
+
                 _output.AppendLine("------ Compile finished");
                 ms.Seek(0, SeekOrigin.Begin);
                 return Assembly.Load(ms.ToArray());
@@ -67,10 +80,12 @@ namespace Gemini.Modules.CodeCompiler
                 var itemType = GetItemType(diagnostic.Severity);
                 var description = diagnostic.GetMessage();
                 var lineSpan = diagnostic.Location.GetLineSpan();
+
+                //Issue: 行列数从1开始
                 _errorList.AddItem(itemType, description,
                     lineSpan.Path,
-                    lineSpan.StartLinePosition.Line,
-                    lineSpan.StartLinePosition.Character,
+                    lineSpan.StartLinePosition.Line + 1,
+                    lineSpan.StartLinePosition.Character + 1,
                     () =>
                     {
                         var openDocumentResult = new OpenDocumentResult(lineSpan.Path);

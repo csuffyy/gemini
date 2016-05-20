@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Gemini.Modules.CodeEditor.Controls;
 
 namespace Gemini.Demo.Modules.Home.Views
 {
@@ -7,7 +8,7 @@ namespace Gemini.Demo.Modules.Home.Views
     /// </summary>
     public partial class HelixView : UserControl, IHelixView
     {
-        public ICSharpCode.AvalonEdit.TextEditor TextEditor
+        public CodeEditor TextEditor
         {
             get { return CodeEditor; }
         }

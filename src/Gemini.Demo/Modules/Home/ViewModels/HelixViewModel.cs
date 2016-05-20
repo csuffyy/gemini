@@ -91,16 +91,22 @@ namespace Gemini.Demo.Modules.Home.ViewModels
         {
             _helixView = (IHelixView)view;
 
-            _helixView.TextEditor.Text = @"public class MyClass : Gemini.Demo.Modules.Home.ViewModels.IDemoScript
-{
-    public void Execute(Gemini.Demo.Modules.Home.ViewModels.HelixViewModel viewModel)
-    {
-        viewModel.RotationAngle += 0.1;
-    }
-}
-";
+            //_helixView.TextEditor.Text = @"public class MyClass : Gemini.Demo.Modules.Home.ViewModels.IDemoScript
+            //{
+            //    public void Execute(Gemini.Demo.Modules.Home.ViewModels.HelixViewModel viewModel)
+            //    {
+            //        viewModel.RotationAngle += 0.1;
+            //    }
+            //}
+            //";
 
+            _helixView.TextEditor.OpenFile("SampleCode.cs");
+            _helixView.TextEditor.Completion.AddAssembly(typeof(AppBootstrapper).Assembly);
+            _helixView.TextEditor.Completion.AddAssembly(typeof(HelixViewModel).Assembly);
+            _helixView.TextEditor.Completion.AddAssembly(typeof(Point3D).Assembly);
+            _helixView.TextEditor.Completion.AddAssembly(typeof(IResult).Assembly);
             _helixView.TextEditor.TextChanged += (sender, e) => CompileScripts();
+
             CompositionTarget.Rendering += OnRendering;
             CompileScripts();
 
@@ -121,6 +127,7 @@ namespace Gemini.Demo.Modules.Home.ViewModels
                             MetadataReference.CreateFromFile(Path.Combine(assemblyPath, "mscorlib.dll")),
                             MetadataReference.CreateFromFile(Path.Combine(assemblyPath, "System.dll")),
                             MetadataReference.CreateFromFile(Path.Combine(assemblyPath, "System.Core.dll")),
+                            MetadataReference.CreateFromFile(Path.Combine(assemblyPath, "System.Runtime.dll")),
                             MetadataReference.CreateFromFile(Path.Combine(assemblyPath+ "\\WPF\\", "PresentationCore.dll")),
                             MetadataReference.CreateFromFile(typeof(IResult).Assembly.Location),
                             MetadataReference.CreateFromFile(typeof(AppBootstrapper).Assembly.Location),
